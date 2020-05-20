@@ -5,7 +5,7 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: false, autocomplete: "email" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -39,6 +39,8 @@
 <% if current_user.has_attribute? :authentication_token %>
   <h3>API Token</h3>
   <pre><code><%= current_user.authentication_token %></code></pre>
+
+  <%= link_to "Reset Token", api_token_path, method: :post %>
 <% end %>
 
 <h3>Cancel my account</h3>
